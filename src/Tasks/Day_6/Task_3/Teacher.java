@@ -1,5 +1,7 @@
 package Tasks.Day_6.Task_3;
 
+import java.util.Random;
+
 public class Teacher {
     private String fullName;
     private String subject;
@@ -8,8 +10,6 @@ public class Teacher {
         this.fullName = fullName;
         this.subject = subject;
     }
-
-    String studentFullName = Student.class.getName();
 
     public String getFullName() {
         return fullName;
@@ -27,22 +27,28 @@ public class Teacher {
         this.subject = subject;
     }
 
-    public void Grade(int x) {
-        switch (x) {
+
+    public void Grade(Student student) {
+        Random random = new Random();
+        int randomValue = random.nextInt(2, 6);
+
+        switch (randomValue) {
             case 2:
-                System.out.println("Преподаватель " + fullName + " оценил студента с именем " + studentFullName + " по предмету " + subject + " на НЕУДОВЛЕТВОРИТЕЛЬНО");
+                System.out.println("Преподаватель " + fullName + " оценил студента с именем " + student.getFullName() + " по предмету " + subject + " на НЕУДОВЛЕТВОРИТЕЛЬНО");
                 break;
             case 3:
-                System.out.println("Преподаватель " + fullName + " оценил студента с именем " + studentFullName + " по предмету " + subject + " на УДОВЛЕТВОРИТЕЛЬНО");
+                System.out.println("Преподаватель " + fullName + " оценил студента с именем " + student.getFullName() + " по предмету " + subject + " на УДОВЛЕТВОРИТЕЛЬНО");
                 break;
             case 4:
-                System.out.println("Преподаватель " + fullName + " оценил студента с именем " + studentFullName + " по предмету " + subject + " на ХОРОШО");
+                System.out.println("Преподаватель " + fullName + " оценил студента с именем " + student.getFullName() + " по предмету " + subject + " на ХОРОШО");
                 break;
             case 5:
-                System.out.println("Преподаватель " + fullName + " оценил студента с именем " + studentFullName + " по предмету " + subject + " на ОТЛИЧНО");
+                System.out.println("Преподаватель " + fullName + " оценил студента с именем " + student.getFullName() + " по предмету " + subject + " на ОТЛИЧНО");
                 break;
             default:
                 System.out.println("Ошибка");
         }
+
+            System.out.println(randomValue);
     }
 }
